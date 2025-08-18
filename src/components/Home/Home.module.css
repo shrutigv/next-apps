@@ -1,0 +1,16 @@
+.home-container {
+    background-image: url(../../assets/background.png);
+    max-height: 100vh;
+}
+.logo {
+    height: 30rem;
+    position: relative;
+    z-index: 0;
+    margin: auto;
+}
+.home-container h2 {
+    text-align: center;
+    color: #131212;
+    font-size: 2rem;
+    margin-top: 2rem;
+}
