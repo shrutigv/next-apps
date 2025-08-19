@@ -3,7 +3,10 @@ import { Menu } from "antd";
 import styles from './Home.module.css' // Import Ant Design styles
 
 const Home = () => {
-  const studentId = window.localStorage.studentid || 123; // student id fetched after login
+    const [id, setId] = useState(123); // Default student ID
+  useEffect(() => {
+    setId(window.localStorage.studentid); // student id fetched after login
+  }, []);
    const [current, setCurrent] = useState('District');
    const items = [
   {
@@ -42,7 +45,7 @@ const Home = () => {
   }, [current]);
   return (<div className={styles["home-container"]}>
           <h2>Katy Independent School District</h2> 
-          <a href={`/student/${studentId}`}>Student details</a>
+          <a href={`/student/${id}`}>Student details</a>
     <Menu onClick={(e) => setCurrent(e.key)} selectedKeys={[current]} mode="horizontal" items={items} />
     <img src="https://resources.finalsite.net/images/f_auto,q_auto/v1751384838/katyisdorg/lhmpbgpxfv4aersdiqt9/New_Student_Pre-Registration.png" className={styles["logo"]} alt="Cleveland ISD Logo" />
   </div>
